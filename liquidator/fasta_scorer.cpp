@@ -137,7 +137,7 @@ public:
                     const auto& pvalues = matrix.pvalues();
                     assert(scaled_score < pvalues.size());
                     const double pvalue = pvalues[scaled_score];
-                    if (pvalue < 0.0001)
+                    if (pvalue < 0.001)
                     {
                         const size_t name_length = name_end-name_begin;
                         const size_t sequence_start = begin - sequence_begin + 1;
