@@ -185,7 +185,7 @@ int main(int argc, char** argv)
 
         if (input_type == bam_input_type)
         {
-            BamScorer(input_file_path, matrices, bam_print_style, unmapped_only, ouput_file_path, region_file_path);
+            0;
         }
         else if (input_type == fasta_input_type)
         {

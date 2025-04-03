@@ -38,7 +38,7 @@ std::vector<double> liquidate(const std::string& bamfile, const std::string& chr
  * looping over many start/stop values for the same bamfile in a single thread, since
  * opening the file/index can take more time than the liquidation. 
  */
-std::vector<double> liquidate(const samfile_t* bamfile, const bam_index_t* bamidx,
+std::vector<double> liquidate(const samFile* bamfile, const bam_index_t* bamidx,
 															const std::string& chromosome,
                               unsigned int start, unsigned int stop,
                               char strand, unsigned int spnum,

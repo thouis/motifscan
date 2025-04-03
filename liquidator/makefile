@@ -41,9 +41,9 @@ CC=g++
 # seems negligible.
 OPTIMIZATION_LEVEL := -O3 -DNDEBUG # normally -O3 with asserts disabled for performance
 #OPTIMIZATION_LEVEL := -O0 # -O0 and asserts enabled for easier debugging
-CPPFLAGS := -std=c++11 $(OPTIMIZATION_LEVEL) -g -Wall -I ./ -I/usr/include/hdf5/serial
-LDFLAGS := $(OPTIMIZATION_LEVEL) -g -Wall -L/usr/lib/x86_64-linux-gnu/hdf5/serial
-LDLIBS := -lbam -lz -lpthread -ltbb
+CPPFLAGS := -std=c++11 $(OPTIMIZATION_LEVEL) -g -Wall -I ./ -I/usr/include/hdf5/serial -I/home/unix/thouis/.conda/envs/tbb/include
+LDFLAGS := $(OPTIMIZATION_LEVEL) -g -Wall -L/usr/lib/x86_64-linux-gnu/hdf5/serial -L/home/unix/thouis/.conda/envs/tbb/lib
+LDLIBS := -lz -lpthread -ltbb
 ADDITIONAL_LDLIBS := -lhdf5 -lhdf5_hl -ltcmalloc_minimal
 
 # if someone else does a ppa dput upload, first change the name/email and commit it
@@ -82,7 +82,7 @@ setup(
 endef
 export SETUP_PY
 
-all: bamliquidator bamliquidator_bins bamliquidator_regions motif_liquidator
+all: motif_liquidator
 
 bamliquidator: bamliquidator.m.o bamliquidator.o
 	$(CC) $(LDFLAGS) -o bamliquidator bamliquidator.o bamliquidator.m.o $(LDLIBS) 
